@@ -28,7 +28,7 @@ class GoogleAuthenticator {
         $time = floor(time() / 30);
         for ( $i = -1; $i <= 1; $i++) {
             
-            if ($this->getCode($secret,$time + $i) == $code) {
+            if (hash_equals($this->getCode($secret,$time + $i), $code)) {
                 return true;
             }
         }
